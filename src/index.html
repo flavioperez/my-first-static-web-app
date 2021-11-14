@@ -12,7 +12,20 @@
   <main>
     <h1>Vanilla JavaScript App</h1>
     <h2>IPS - Demo - 2021</h2>
+
+    <p>Loading content from API: <b id="name">...</b></p>
   </main>
+
+  <script>
+    (async function() {
+      const { text } = await( await fetch('/api/message') ).json();
+
+      document.querySelector('#name').textContent = text;
+    }())
+  </script>
+
+
+
 </body>
 
 </html>
